@@ -1,0 +1,24 @@
+/*
+ 
+ Write a program that finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0.
+ 
+ summation(2) -> 3
+ 1 + 2
+
+ summation(8) -> 36
+ 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8
+ 
+ */
+
+
+func summation(_ n: Int) -> Int {
+    var counter = 0
+    var returnValue = 0
+    while counter != n {
+        counter += 1
+        returnValue += counter
+    }
+    return returnValue
+}
+
+summation(8)
