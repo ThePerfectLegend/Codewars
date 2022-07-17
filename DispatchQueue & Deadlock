@@ -1,0 +1,46 @@
+import Foundation
+
+func first() {
+    print("A")
+    
+    DispatchQueue.main.async {
+        print("B")
+        
+        DispatchQueue.main.async {
+            print("D")
+        }
+        
+        DispatchQueue.global().sync {
+            print("E")
+        }
+    }
+    
+    print("F")
+    
+    DispatchQueue.main.async {
+        print("G")
+    }
+}
+
+//A
+//F
+//B
+//E
+//G
+//D
+
+func deadLock() {
+    DispatchQueue.main.async {
+        print("A")
+        DispatchQueue.main.sync {
+            print("B")
+        }
+    }
+}
+
+//A
+
+first()
+deadLock()
+
+
